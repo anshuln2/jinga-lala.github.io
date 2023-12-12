@@ -249,9 +249,9 @@
             </span>
 
             <div class="content text-center">
-                <span class="author-block"><sup>1</sup>Microsoft, Redmond</span>
+                <span class="author-block"><sup>1</sup>Microsoft</span>
                 <span class="author-block"><sup>2</sup>University of Washington,</span>
-                <span class="author-block"><sup>3</sup>Microsoft Research, Redmond,</span>
+                <span class="author-block"><sup>3</sup>Microsoft Research,</span>
                 <span class="author-block"><sup>*</sup>Equal Contribution</span>
             </div>
 
@@ -287,12 +287,12 @@
                         <font size="+1">
                             Peekaboo is <i>completely training-free</i>, and has <i>zero inference latency
                                 overheads</i>. It can be deployed on any text-to-video UNet based diffusion model
-                            readily. We showcase results on ModelScope and ZeroScope here. More results are coming soon.
+                            readily.
                         </font>
                     </li>
                     <li>
                         <font size="+1">
-                            We also propose a new evaluation benchmark called IMC for interactive video generation.
+                            We also propose two new quantitative evaluation benchmarks  for interactive video generation called ssv2-ST and IMC.
                         </font>
                     </li>
                 </ul>
@@ -393,41 +393,12 @@
 
     </br>
 
-    <div class="col-md-8 col-md-offset-2 text-center">
-        <h2>
-            <b>
-                <!-- <font size="+5">Abstract</font> -->
-                Abstract
-            </b>
-        </h2>
-    </div>
-
-
-
-    <div class="col-md-8 col-md-offset-2">
-        <p class="text-justify">
-
-            Recently there has been a lot of progress in text-to-video generation, with state-of-the-art models
-            being capable of generating high quality, realistic videos. However, these models lack the capability
-            for users to interactively control and generate videos, which can potentially unlock new areas of
-            application. As a first step towards this goal, we tackle the problem of endowing diffusion-based video
-            generation models with interactive spatio-temporal control over their output. To this end, we take
-            inspiration from the recent advances in segmentation literature to propose a novel spatio-temporal
-            masked attention module - Peekaboo. This module is a training-free, no-inference-overhead addition to
-            off-the-shelf video generation models which enables spatio-temporal control. We also propose an
-            evaluation benchmark for the interactive video generation task. Through extensive qualitative and
-            quantitative evaluation, we establish that Peekaboo enables control video generation and even
-            obtains a gain of upto 3.8x in mIoU over baseline models.
-        </p>
-    </div>
-
-    </br>
 
     <div class="col-md-8 col-md-offset-2 text-center">
         <h2>
             <b>
                 <!-- <font size="+4">Methods</font> -->
-                Methods
+                Method
             </b>
         </h2>
     </div>
@@ -449,12 +420,9 @@
             <!-- Commented out: We guide the generation process through spatio-temporal conditioning of the latents via attention masks. -->
             For each of spatial-, cross-, and temporal-attentions, we compute attention masks such that foreground
             pixels and background pixels attend only within their own region. We illustrate these mask computations
-            for an input mask (size \(2\times2\) and \(3\) frames) which changes temporally as shown on the left.
+            for an input mask which changes temporally as shown on the left.
             <span class="bggreen">Green</span> pixels are <span class="bggreen">background</span> pixels and <span
-                class="fgorange">orange</span> are <span class="fgorange">foreground</span>. In the attention masks,
-            both <span class="bggreen">green</span> and <span class="fgorange">orange</span> pixels have a value of
-            \(1\), and <span style="color: gray;">gray</span> pixels have a value of \(0\). We add the colors for
-            ease of exposition. This masking is applied for a fixed number of steps, after which free generation is
+                class="fgorange">orange</span> are <span class="fgorange">foreground</span>. This masking is applied for a fixed number of steps, after which free generation is
             allowed. Hence, <span class="fgorange">foreground</span> and <span class="bggreen">background</span>
             pixels are hidden from each other before being visible, akin to a game of Peekaboo.
 
@@ -583,7 +551,7 @@
                         </div>
                         <div style="display: flex; align-items: center;">
                             <figcaption style="margin-left: 10px;">
-                                <h4 class="tm-gallery-title">An Eagle flying in the sky</h4>
+                                <h4 class="tm-gallery-title">A frog jumping to catch a fly.</h4>
                             </figcaption>
                             <div class="w-1/4 max-h-50 condition_img" style="flex-shrink: 0;">
                                 <img src="assets/videos/moving/frog_mask.png" style="width: 200px; height: auto;" />
